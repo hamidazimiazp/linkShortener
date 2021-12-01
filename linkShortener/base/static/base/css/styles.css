@@ -18,6 +18,8 @@ body{
     align-items: center;
     transition: .4s linear all;
     color: #fff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 .copy-msg-set{
     right: 0;

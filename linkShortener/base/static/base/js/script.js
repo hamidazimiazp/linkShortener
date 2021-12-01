@@ -58,11 +58,30 @@ $(document).ready(function(){
 });
 
 
+
 // dark mode handler
+if(localStorage.getItem("theme") === null){
+    localStorage.setItem("theme", "white");
+}
+if(localStorage.getItem("theme") === "dark"){
+    $("header .navigation nav ul li a").addClass("dark");
+    $(".slim-first-section .content").addClass("dark");
+}
+if(localStorage.getItem("theme") === "white"){
+    $("header .navigation nav ul li a").removeClass("dark");
+    $(".slim-first-section .content").removeClass("dark");
+}
 $(document).ready(function(){
     $(".dark-toggle-btn").on("click", function(){
-        $("header .navigation nav ul li a").toggleClass("dark");
-        $(".slim-first-section .content").toggleClass("dark");
+        if(localStorage.getItem("theme") === "dark"){
+            localStorage.setItem("theme", "white");
+            $("header .navigation nav ul li a").removeClass("dark");
+            $(".slim-first-section .content").removeClass("dark");
+        }else{
+            localStorage.setItem("theme", "dark");
+            $("header .navigation nav ul li a").addClass("dark");
+            $(".slim-first-section .content").addClass("dark");
+        }
     });
 });
 
