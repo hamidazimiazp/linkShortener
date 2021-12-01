@@ -5,6 +5,24 @@ body{
 .slim-first-section{
     padding: 0;
 }
+/* copy msg box */
+.copy-msg{
+    padding: 10px;
+    position: absolute;
+    box-sizing: content-box;
+    background: #6cac09;
+    top: 200px;
+    right: -100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .4s linear all;
+    color: #fff;
+}
+.copy-msg-set{
+    right: 0;
+}
+
 /* start header */
 .slim-first-section .content{
     background-color: #f5f8ff;  
@@ -88,7 +106,7 @@ header .header-title h1{
     border-radius: 7px;
     color: #fff;
     width: 320px;
-    /* display: none; */
+    display: none;
 }
 .warning-broken{
     background-color: orange;
@@ -103,6 +121,10 @@ header .header-title h1{
 }
 .result-box i:hover{
     color: aquamarine;
+}
+.form-control.linkInput:focus {
+    box-shadow: none;
+    border-color: #eceef1;
 }
 /* end main */
 

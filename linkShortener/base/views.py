@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views import View
 from .models import Shortener
 from django.http import HttpResponseRedirect
+from django.http import JsonResponse
+import re
 
 
 class Index(View):
@@ -16,13 +18,17 @@ class Index(View):
     
     def post(self, request):
         LINK = request.POST["link"]
-        s = Shortener(long_url = LINK)
-        s.save()
+        validate = re.match(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', LINK);
+        if validate:
+            s = Shortener(long_url = LINK)
+            s.save()
         
-        self.context["short_link"] = request.build_absolute_uri('/') + s.short_url
-        
-        
-        return render(request, self.template_name, self.context)
+            self.context["short_link"] = request.build_absolute_uri('/') + s.short_url
+            
+            return JsonResponse(self.context)
+        else:
+            self.context["msg"] = "Please enter valid URL."
+            return JsonResponse(self.context)
     
 
 class redirect_short_url(View):
@@ -43,5 +49,5 @@ class redirect_short_url(View):
             
         except:
             self.context["msg"] = "Sorry this link is broken :("
-            
-            return render(request, self.template_name, self.context)
+        
+            return JsonResponse(self.context)

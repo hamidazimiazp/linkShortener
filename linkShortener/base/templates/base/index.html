@@ -12,6 +12,7 @@
     <div class="row">
         <div class="col-12 text-center slim-first-section">
             <div class="content">
+                <div class="copy-msg">link copied in clipboard</div>
                 <header>
                     <div class="navigation">
                         <nav>
@@ -55,30 +56,21 @@
                                             Most link shorteners do too much.<br />
                                             This one just makes your links shorter.
                                         </h2>
-                                        <form class="mt-5" method="post" action="{% url 'base:index' %}">
+                                        <form class="mt-5 myform" method="post" action="{% url 'base:index' %}">
                                             {% csrf_token %}
                                             <div class="input-group mb-3">
-                                                <input type="text" required name="link" class="form-control" placeholder="Paste your link here!" aria-label="Paste your link here!" aria-describedby="basic-addon2">
+                                                <input type="text" required name="link" class="form-control linkInput" placeholder="Paste your link here!" aria-label="Paste your link here!" aria-describedby="basic-addon2">
                                                 <div class="input-group-append">
-                                                  <button class="input-group-text"   id="basic-addon2">Drop!</button>
+                                                  <button type="submit" class="input-group-text drop" id="basic-addon2">Drop!</button>
                                                 </div>
                                               </div>
                                         </form>
-                                        {% if short_link %}
-                                            <div class="result-box mt-5 ">
-                                                <h5>
-                                                    {{ short_link }}
-                                                </h5>
-                                                <i class="fas fa-copy"></i>
-                                            </div>
-                                        {% endif %}
-                                        {% if msg %}
-                                            <div class="result-box mt-5 warning-broken">
-                                                <h5>
-                                                    {{ msg }}
-                                                </h5>
-                                            </div>
-                                        {% endif %}
+                                        <div class="result-box result-box-short_link mt-5 ">
+                                            <h5 class="short_link">
+                                                
+                                            </h5>
+                                            <i class="fas fa-copy"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
