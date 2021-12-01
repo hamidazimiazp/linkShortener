@@ -1,12 +1,108 @@
 {% extends 'parent/parent.html' %}
 {% load static %}
+
 {% block title %}Home{% endblock title %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'base/css/styles.css' %}?{% now 'U' %}">
+{% endblock header %}
+
 {% block body %}
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-12 text-center">
-            20
+        <div class="col-12 text-center slim-first-section">
+            <div class="content">
+                <header>
+                    <div class="navigation">
+                        <nav>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-1 col-sm-6">
+                                        <h5>
+                                            Slim
+                                        </h5>
+                                    </div>
+                                    <div class="col-11 col-sm-6">
+                                        <ul>
+                                            <li><a target="_blank" href="https://github.com/hamidazimiazp/">Github</a></li>
+                                            <li><a href="#">About</a></li>
+                                            <li><i class="fas fa-moon dark-toggle-btn"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="header-title">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h1>
+                                        Slim.me
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <main>
+                    <section class="main-first-section">
+                        <div class="content">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h2>
+                                            Most link shorteners do too much.<br />
+                                            This one just makes your links shorter.
+                                        </h2>
+                                        <form class="mt-5" method="post" action="{% url 'base:index' %}">
+                                            {% csrf_token %}
+                                            <div class="input-group mb-3">
+                                                <input type="text" required name="link" class="form-control" placeholder="Paste your link here!" aria-label="Paste your link here!" aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                  <button class="input-group-text"   id="basic-addon2">Drop!</button>
+                                                </div>
+                                              </div>
+                                        </form>
+                                        {% if short_link %}
+                                            <div class="result-box mt-5 ">
+                                                <h5>
+                                                    {{ short_link }}
+                                                </h5>
+                                                <i class="fas fa-copy"></i>
+                                            </div>
+                                        {% endif %}
+                                        {% if msg %}
+                                            <div class="result-box mt-5 warning-broken">
+                                                <h5>
+                                                    {{ msg }}
+                                                </h5>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                <footer>
+                    <section>
+                        <div class="wave-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                                <defs>
+                                    <path id="gentle-wave" class="st0" d="M-160,35.6 c 30,0,58-6.6,88-6.6 s58,6.6,88,6.6s58-6.6,88-6.6s58,6.6,88,6.6V59h-352V35.6z"></path>
+                                </defs>
+                                <g class="parallax">
+                                    <use style="fill:#86B63F;fill-opacity: 1;" xlink:href="#gentle-wave" x="48" y="0"></use>
+                                    <use style="fill:#598813;fill-opacity: 1;" xlink:href="#gentle-wave" x="48" y="0"></use>
+                                </g>
+                            </svg>
+                        </div>
+                    </section>
+                </footer>
+            </div>
         </div>
     </div>
 </div>
+<script src="{% static 'js/script.js' %}"></script>
 {% endblock body %}
