@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Shortener
 
-# Register your models here.
+
+@admin.register(Shortener)
+class manageShortener(admin.ModelAdmin):
+    pass
