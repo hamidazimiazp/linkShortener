@@ -59,7 +59,7 @@
                                         <form class="mt-5 myform" method="post" action="{% url 'base:index' %}">
                                             {% csrf_token %}
                                             <div class="input-group mb-3">
-                                                <input type="text" required name="link" class="form-control linkInput" placeholder="Paste your link here!" aria-label="Paste your link here!" aria-describedby="basic-addon2">
+                                                <input autofocus type="text" required name="link" class="form-control linkInput" placeholder="Paste your link here!" aria-label="Paste your link here!" aria-describedby="basic-addon2">
                                                 <div class="input-group-append">
                                                   <button type="submit" class="input-group-text drop" id="basic-addon2">Drop!</button>
                                                 </div>
