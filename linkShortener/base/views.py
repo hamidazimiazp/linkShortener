@@ -50,4 +50,4 @@ class redirect_short_url(View):
         except:
             self.context["msg"] = "Sorry this link is broken :("
         
-            return JsonResponse(self.context)
+            return render(request, self.template_name, self.context)

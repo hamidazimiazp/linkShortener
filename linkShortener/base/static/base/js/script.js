@@ -35,6 +35,9 @@ $(document).ready(function(){
                 },
                 success : function(response){
                     if(response["short_link"]){
+                        if($(".show-msg")){
+                            $(".show-msg").remove();
+                        }
                         $(".short_link").html(response["short_link"]);
                         $(".result-box-short_link").css("display", "flex");
                         $(".result-box").css("background", "#6cac09");
@@ -90,9 +93,9 @@ $(document).ready(function(){
 
 // copy link in clipboard
 $(document).ready(function(){
-    $(".fa-copy").on("click", function(){
+    $(".fa-copy").click(function(){
         let link = $(".short_link").text();
-
+        console.log(link);
         navigator.clipboard.writeText(link).then(
             function(){
                 $(".copy-msg").addClass("copy-msg-set");   

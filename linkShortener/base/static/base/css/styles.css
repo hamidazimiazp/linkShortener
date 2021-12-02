@@ -114,6 +114,14 @@ header .header-title h1{
     background-color: orange;
     justify-content: center;
 }
+.show-msg{
+    background-color: red;
+    display: flex;
+    justify-content: center;
+}
+.show-msg i{
+    display: none;
+}
 .result-box h5{
     font-size: 18px;
 }
