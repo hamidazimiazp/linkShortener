@@ -4,6 +4,9 @@ from .models import Shortener
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 import re
+import qrcode
+import qrcode.image.svg
+from io import BytesIO
 
 
 class Index(View):
@@ -22,9 +25,20 @@ class Index(View):
         if validate:
             s = Shortener(long_url = LINK)
             s.save()
-        
+
+            # set full link
             self.context["short_link"] = request.build_absolute_uri('/') + s.short_url
             
+            # make qrlcode
+            factory = qrcode.image.svg.SvgImage
+            img = qrcode.make(self.context["short_link"],
+                              image_factory=factory, box_size=10,
+                              )
+            stream = BytesIO()
+            img.save(stream)
+            self.context["svg"] = stream.getvalue().decode()
+            
+                              
             return JsonResponse(self.context)
         else:
             self.context["msg"] = "Please enter valid URL."

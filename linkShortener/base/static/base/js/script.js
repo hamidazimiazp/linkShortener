@@ -8,6 +8,7 @@ function ValidURL(str) {
     $(".result-box").css("background", "orange");
     $(".fa-copy").hide();
     $(".linkInput").val("");
+    $(".qrlcode").html("");
     return false;
   } else {
     return true;
@@ -44,6 +45,9 @@ $(document).ready(function(){
                         $(".result-box").css("justify-content", "space-between");
                         $(".fa-copy").show();
                         linkInput.val("");
+                        $(".qrlcode").html("");
+                        $(".qrlcode").append(response["svg"]);
+
                     }else if(response["msg"]){
                         $(".short_link").html(response["msg"]);
                         $(".result-box").css("display", "flex");

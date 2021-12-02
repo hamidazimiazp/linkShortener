@@ -95,7 +95,7 @@ header .header-title h1{
 
 .result-box{
     position: absolute;
-    bottom: -100px;
+    bottom: -80px;
     left: 50%;
     transform: translate(-50%);
     background: #6cac09;
@@ -133,6 +133,11 @@ header .header-title h1{
 .form-control.linkInput:focus {
     box-shadow: none;
     border-color: #eceef1;
+}
+.qrlcode {
+    border-radius: 6px;
+    background-color: #fff;
+    display: inline-block;
 }
 /* end main */
 
