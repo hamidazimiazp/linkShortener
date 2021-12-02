@@ -8,7 +8,7 @@ body{
 /* copy msg box */
 .copy-msg{
     padding: 10px;
-    position: absolute;
+    position: fixed;
     box-sizing: content-box;
     background: #6cac09;
     top: 200px;
@@ -20,6 +20,7 @@ body{
     color: #fff;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    z-index: 9999;
 }
 .copy-msg-set{
     right: 0;
@@ -41,13 +42,15 @@ header .navigation nav h5{
 }
 header .navigation nav ul{
     list-style-type: none;
-    direction: rtl;
+    /* direction: rtl; */
 }
 header .navigation nav ul li{
     display: inline;
     margin-right: 25px;
 }
-
+header .navigation nav ul li:nth-child(3){
+    margin: 0;
+}
 header .navigation nav ul li i{
     cursor: pointer;
 }
