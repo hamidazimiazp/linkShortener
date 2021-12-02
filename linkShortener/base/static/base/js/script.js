@@ -74,22 +74,22 @@ if(localStorage.getItem("theme") === null){
 }
 if(localStorage.getItem("theme") === "dark"){
     $("header .navigation nav ul li a").addClass("dark");
-    $(".slim-first-section .content").addClass("dark");
+    $("body").addClass("dark");
 }
 if(localStorage.getItem("theme") === "white"){
     $("header .navigation nav ul li a").removeClass("dark");
-    $(".slim-first-section .content").removeClass("dark");
+    $("body").removeClass("dark");
 }
 $(document).ready(function(){
     $(".dark-toggle-btn").on("click", function(){
         if(localStorage.getItem("theme") === "dark"){
             localStorage.setItem("theme", "white");
             $("header .navigation nav ul li a").removeClass("dark");
-            $(".slim-first-section .content").removeClass("dark");
+            $("body").removeClass("dark");
         }else{
             localStorage.setItem("theme", "dark");
             $("header .navigation nav ul li a").addClass("dark");
-            $(".slim-first-section .content").addClass("dark");
+            $("body").addClass("dark");
         }
     });
 });

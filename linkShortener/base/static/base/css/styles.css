@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
 body{
     overflow: hidden;
+    background-color: #f5f8ff;
 }
 .slim-first-section{
     padding: 0;
@@ -28,7 +29,7 @@ body{
 
 /* start header */
 .slim-first-section .content{
-    background-color: #f5f8ff;  
+      
     max-height: 100vh;
 }
 header{
@@ -151,8 +152,9 @@ header .header-title h1{
 .wave-content svg{
     height: 250px;
     width: 100%;
-    position: relative;
-    bottom: -110px;
+    position: absolute;
+    bottom: -130px;
+    left: 0;
 }
 .wave-content .parallax > use {
     animation: waveAnimateB 14s linear infinite;
@@ -178,14 +180,21 @@ header .header-title h1{
 }
 /* end footer */
 
-/* dark */
+/* dark theme */
 header .navigation nav ul li a.dark{
     color: #fff;
 }
 header .navigation nav ul li a.dark:hover{
     color: #6cac09;
 }
-.slim-first-section .content.dark{
-    background-color: #000;
+body.dark{
+    background-color: #000 !important;
     color: #fff;
+}
+/* end dark theme */
+
+@media screen and (max-width:380px){
+    .wave-content{
+        display: none;
+    }
 }
