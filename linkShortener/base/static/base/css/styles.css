@@ -47,9 +47,7 @@ header .navigation nav ul li{
     display: inline;
     margin-right: 25px;
 }
-header .navigation nav ul li:first-child{
-    margin-right: 0;
-}
+
 header .navigation nav ul li i{
     cursor: pointer;
 }
